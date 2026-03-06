@@ -2,12 +2,14 @@ import React from 'react';
 import Editor from '@monaco-editor/react';
 import { Plus, Trash2, FileCode } from 'lucide-react';
 
+import { THEMES } from '../../constants/themes';
+
 const EditorPane = ({
     jsonText,
     handleTextChange,
     mobileTab,
     setMobileTab,
-    isDark,
+    theme,
     colors,
     error,
     renderPreview,
@@ -17,7 +19,7 @@ const EditorPane = ({
     onAddFile,
     onDeleteFile
 }) => {
-    const editorTheme = isDark ? 'vs-dark' : 'light';
+    const editorTheme = THEMES[theme]?.monaco || 'vs-dark';
 
     const editorOptions = {
         fontSize: window.innerWidth < 1024 ? 16 : 14,
@@ -55,7 +57,8 @@ const EditorPane = ({
     };
 
     return (
-        <main className={`flex-1 flex flex-col min-w-0 ${isDark ? 'bg-[#1e1e1e]' : 'bg-white'}`}>
+        <main className={`flex-1 flex flex-col min-w-0 ${colors.bg}`}>
+
             {/* Mobile Tabbed Nav */}
             <div className="lg:hidden flex h-10 border-b border-white/5 shrink-0">
                 <button
@@ -98,7 +101,7 @@ const EditorPane = ({
                 )}
 
                 {window.innerWidth <= 1024 && mobileTab === 'files' && (
-                    <div className="flex-1 p-4 overflow-auto bg-[#1e1e1e] text-[#cccccc]">
+                    <div className={`flex-1 p-4 overflow-auto ${colors.bg} ${colors.text}`}>
                         <div className="flex items-center justify-between mb-4">
                             <span className="text-[10px] uppercase font-black opacity-40 tracking-widest">Explorer</span>
                             <button
@@ -148,7 +151,7 @@ const EditorPane = ({
                 )}
 
                 {window.innerWidth <= 1024 && mobileTab === 'preview' && (
-                    <div className="flex-1 p-4 overflow-auto bg-[#1e1e1e]">
+                    <div className={`flex-1 p-4 overflow-auto ${colors.bg}`}>
                         {error ? (
                             <div className="p-8 flex flex-col items-center justify-center opacity-30 text-center gap-4">
                                 <FileCode size={48} />
