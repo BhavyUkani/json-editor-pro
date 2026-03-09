@@ -1,16 +1,88 @@
-# React + Vite
+# JSON Pro IDE 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-performance, professional-grade JSON editor built with React, Vite, and the Monaco Editor. Designed for developers who need a robust, multi-file environment with deep structural manipulation and zero storage limits.
 
-Currently, two official plugins are available:
+![JSON Pro IDE Logo](public/logo.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- **🔐 Privacy First**: Your data never leaves your browser. All JSON files are stored locally using IndexedDB. No cloud, no tracking, and no data collection.
+- **🚀 Monaco Power**: Integrated with the same engine as VS Code...
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **💾 IndexedDB Workspace**: Replaced `localStorage` with `idb-keyval` for limitless storage capacity and high-performance file persistence.
+- **📁 Multi-File Management**: Create, delete, and switch between multiple JSON files in a seamless sidebar explorer.
+- **🏗️ Structural Mutation**: Add keys/values at any level directly from the interactive Tree View/Outline pane using a touch-friendly popup.
+- **🎨 Premium Themes**: Choose between 5 professional color schemes:
+  - VS Code Dark & Light
+  - Monokai
+  - Night Owl
+  - Aura (Cyberpunk style)
+- **📱 Fully Responsive**: Optimized for mobile and tablets with custom tabbed navigation, touch-friendly icons, and zero-zoom focus.
+- **⚡ Utility Toolkit**:
+  - One-click Beautify/Minify.
+  - Export to `.json` file.
+  - Load data directly from external URLs.
+  - Real-time syntax validation.
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Framework**: [React 19](https://react.dev/)
+- **Bundler**: [Vite 7](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Editor**: [@monaco-editor/react](https://github.com/suren-atoyan/monaco-react)
+- **Database**: [idb-keyval](https://github.com/jakearchibald/idb-keyval)
+- **Icons**: [Lucide React](https://lucide.dev/)
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn
+
+### Installation
+
+1. **Clone the repository**:
+   ```bash
+   git clone <your-repo-url>
+   cd json-editor-pro
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
+
+4. **Build for production**:
+   ```bash
+   npm run build
+   ```
+
+## 📁 Project Structure
+
+```text
+src/
+├── components/
+│   ├── editor/      # Monaco Editor integration
+│   ├── layout/      # Sidebar, Header, Footer, MenuBar
+│   ├── preview/     # Interactive JSON Tree View
+│   ├── modals/      # URL fetch & File creation modals
+│   └── common/      # Resizers and shared UI atoms
+├── hooks/           # useJsonActions, useResizer, usePersistence
+├── constants/       # Workspace config and Theme definitions
+├── App.jsx          # Main application orchestrator
+└── main.jsx         # Entry point
+```
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+---
+
+Built with ❤️ for the Developer Community.
